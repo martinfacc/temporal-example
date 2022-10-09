@@ -19,3 +19,27 @@ const zonedDateTime = Temporal.ZonedDateTime.from(
 )
 
 console.log(zonedDateTime.toString())
+
+const instant = zonedDateTime.toInstant()
+
+console.log(instant.toString())
+
+const schedule = {
+	from: '09:00',
+	to: '20:00',
+	zone: 'America/Buenos_Aires',
+}
+
+// today at 9:00
+const from = Temporal.ZonedDateTime.from(
+	`${Temporal.Now.plainDateISO()}T${schedule.from}[${schedule.zone}]`
+)
+// today at 20:00
+const to = Temporal.ZonedDateTime.from(
+	`${Temporal.Now.plainDateISO()}T${schedule.to}[${schedule.zone}]`
+)
+
+console.log({
+	from: from.toString(),
+	to: to.toString(),
+})
