@@ -27,16 +27,16 @@ console.log(instant.toString())
 const schedule = {
 	from: '09:00',
 	to: '20:00',
-	zone: 'America/Buenos_Aires',
+	timezone: 'America/Buenos_Aires',
 }
 
 // today at 9:00
 const from = Temporal.ZonedDateTime.from(
-	`${Temporal.Now.plainDateISO()}T${schedule.from}[${schedule.zone}]`
+	`${Temporal.Now.plainDateISO()}T${schedule.from}[${schedule.timezone}]`
 )
 // today at 20:00
 const to = Temporal.ZonedDateTime.from(
-	`${Temporal.Now.plainDateISO()}T${schedule.to}[${schedule.zone}]`
+	`${Temporal.Now.plainDateISO()}T${schedule.to}[${schedule.timezone}]`
 )
 
 console.log({
