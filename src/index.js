@@ -2,21 +2,20 @@ import { Temporal, Intl, toTemporalInstant } from '@js-temporal/polyfill'
 
 Date.prototype.toTemporalInstant = toTemporalInstant
 
-// const cal = Temporal.Calendar.from('iso8601')
-// const date = cal.dateFromFields({ year: 2000, month: 2, day: 5 }, {})
-// console.log(
-// 	date.monthsInYear,
-// 	date.daysInYear,
-// 	date.daysInMonth,
-// 	date.daysInWeek
-// )
+// const now = Temporal.Now.plainDateTimeISO()
 
-// const instant = Temporal.Now.instant()
-// console.log({instant: instant.toString()})
+// const yesterday = now.subtract({ days: 1 })
 
-// const date = Temporal.Instant.from('2021-01-01T00:00:00Z')
-// console.log({date: date.toString()})
+// const tomorrow = now.add({ days: 1 })
 
-// const date2 = Temporal.Instant.from('2021-01-01T03:00:00Z')
-// console.log({date2: date2.toString()})
+// console.log({
+// 	now: now.toString(),
+// 	yesterday: yesterday.toString(),
+// 	tomorrow: tomorrow.toString(),
+// })
 
+const zonedDateTime = Temporal.ZonedDateTime.from(
+	'2021-01-01T08:00[America/Buenos_Aires]'
+)
+
+console.log(zonedDateTime.toString())
