@@ -39,7 +39,51 @@ const to = Temporal.ZonedDateTime.from(
 	`${Temporal.Now.plainDateISO()}T${schedule.to}[${schedule.timezone}]`
 )
 
+const now = Temporal.ZonedDateTime.from(
+	`${Temporal.Now.instant()}[${schedule.timezone}]`
+)
+
+const days = [
+	'Monday',
+	'Tuesday',
+	'Wednesday',
+	'Thursday',
+	'Friday',
+	'Saturday',
+	'Sunday',
+]
+
+const nowPlusOneHour = now.add({ hours: 1 })
+const nowSubtractOneHour = now.subtract({ hours: 1 })
+const nowOnlyTime = now.toPlainTime()
+const nowOnlyDate = now.toPlainDate()
+const nowOnlyTimeZone = now.timeZone
+const nowOnlyDayOfWeek = now.dayOfWeek
+const nowOnlyDayName = days[nowOnlyDayOfWeek - 1]
+const nowOnlyDay = now.day
+const nowOnlyMonth = now.month
+const nowOnlyYear = now.year
+const nowOnlyHour = now.hour
+const nowOnlyMinute = now.minute
+const nowOnlySecond = now.second
+const nowToSeconds = now.toSecondsString()
+
 console.log({
 	from: from.toString(),
 	to: to.toString(),
+	now: now.toString(),
+	nowPlusOneHour: nowPlusOneHour.toString(),
+	nowSubtractOneHour: nowSubtractOneHour.toString(),
+	nowOnlyTime: nowOnlyTime.toString(),
+	nowOnlyDate: nowOnlyDate.toString(),
+	nowOnlyTimeZone: nowOnlyTimeZone.toString(),
+	nowOnlyDayOfWeek: nowOnlyDayOfWeek,
+	nowOnlyDayName: nowOnlyDayName,
+	nowOnlyDay: nowOnlyDay,
+	nowOnlyMonth: nowOnlyMonth,
+	nowOnlyYear: nowOnlyYear,
+	nowOnlyHour: nowOnlyHour,
+	nowOnlyMinute: nowOnlyMinute,
+	nowOnlySecond: nowOnlySecond,
+	nowToSeconds: nowToSeconds,
 })
