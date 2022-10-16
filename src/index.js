@@ -15,7 +15,7 @@ Date.prototype.toTemporalInstant = toTemporalInstant
 // })
 
 const zonedDateTime = Temporal.ZonedDateTime.from(
-	'2021-01-01T08:00[America/Buenos_Aires]'
+	'2021-01-01T00:00:00.000[America/Buenos_Aires]'
 )
 
 console.log(zonedDateTime.toString())
@@ -54,6 +54,8 @@ const days = [
 ]
 
 const nowPlusOneHour = now.add({ hours: 1 })
+const nowPlusOneDay = now.add({ days: 1 })
+const nowPlusOneMinute = now.add({ minutes: 1 })
 const nowSubtractOneHour = now.subtract({ hours: 1 })
 const nowOnlyTime = now.toPlainTime()
 const nowOnlyDate = now.toPlainDate()
@@ -66,13 +68,22 @@ const nowOnlyYear = now.year
 const nowOnlyHour = now.hour
 const nowOnlyMinute = now.minute
 const nowOnlySecond = now.second
-const nowToSeconds = now.toSecondsString()
+const nowEqualsFrom = now.equals(from)
+const nowEqualsNow = now.equals(now)
+const nowSinceFrom = now.since(from)
+const nowUntilTo = now.until(to)
+const nowCompareToFrom = Temporal.ZonedDateTime.compare(now, from)
+const nowCompareToNow = Temporal.ZonedDateTime.compare(now, now)
+const nowCompareToTo = Temporal.ZonedDateTime.compare(now, to)
+const fromCompareToNow = Temporal.ZonedDateTime.compare(from, now)
 
 console.log({
 	from: from.toString(),
 	to: to.toString(),
 	now: now.toString(),
 	nowPlusOneHour: nowPlusOneHour.toString(),
+	nowPlusOneDay: nowPlusOneDay.toString(),
+	nowPlusOneMinute: nowPlusOneMinute.toString(),
 	nowSubtractOneHour: nowSubtractOneHour.toString(),
 	nowOnlyTime: nowOnlyTime.toString(),
 	nowOnlyDate: nowOnlyDate.toString(),
@@ -85,5 +96,12 @@ console.log({
 	nowOnlyHour: nowOnlyHour,
 	nowOnlyMinute: nowOnlyMinute,
 	nowOnlySecond: nowOnlySecond,
-	nowToSeconds: nowToSeconds,
+	nowEqualsFrom,
+	nowEqualsNow,
+	nowSinceFrom: nowSinceFrom.toString(),
+	nowUntilTo: nowUntilTo.toString(),
+	nowCompareToFrom,
+	nowCompareToNow,
+	nowCompareToTo,
+	fromCompareToNow,
 })
